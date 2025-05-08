@@ -17,11 +17,6 @@ const savedAuth = localStorage.getItem('auth')
 const initialState: AuthState = savedAuth
     ? { user: JSON.parse(savedAuth).user, accessToken: JSON.parse(savedAuth).accessToken, isAuthenticated: true }
     : { user: null, accessToken: null, isAuthenticated: false }
-// const initialState: AuthState = {
-//     user: null,
-//     isAuthenticated: false,
-//     accessToken: null
-// }
 
 const authSlice = createSlice({
     name: 'auth',

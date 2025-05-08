@@ -1,0 +1,27 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+
+
+const HamburgerMenu = () => {
+    const [isOpen, setOpen] = useState(false)
+
+    const handleToggle = async () => {
+        setOpen(!isOpen)
+    }
+    return (
+        <header>
+            <nav className="navbar">
+                <div className='hamburger-container'>
+                    <button className="hamburger" id="hamburger" onClick={handleToggle}>&#9776;</button>
+                    <ul className={`nav-links ${isOpen ? 'show' : ''}`} id="nav-links">
+                        <li><Link to="/categories" className="linkButton">Menu</Link></li>
+                        <li><Link to="/" className="linkButton">Home</Link></li>
+                    </ul >
+                </div>
+            </nav>
+        </header >
+    )
+}
+
+export default HamburgerMenu
