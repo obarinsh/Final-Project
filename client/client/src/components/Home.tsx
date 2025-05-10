@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../store/store'
 import { logout } from '../features/authSlice'
-
+import Carousel from './Carousel.tsx'
 
 
 const Home = () => {
@@ -26,6 +26,7 @@ const Home = () => {
     console.log(isAuthenticated)
     return (<main>
         <h1>Welcome</h1>
+        <Carousel />
         {isAuthenticated ? (
             <>
                 <p>Welcome, {user?.username}!</p>

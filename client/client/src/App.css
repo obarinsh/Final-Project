@@ -3,6 +3,7 @@ body {
   background: linear-gradient(160deg, #a2cbee, #d4e6f8);
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1;
 }
 
 .linkButton {
@@ -14,12 +15,12 @@ body {
 }
 
 
-.page-container {
-  display: flex;
+/* .page-container {
+  display: flex;i want 
   justify-content: center;
   align-items: center;
   padding-top: 100px;
-}
+} */
 
 .card-container {
   width: 90%;
@@ -54,7 +55,8 @@ body {
   background-blend-mode: overlay;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Playfair Display', serif;
-  font-size: 22px
+  font-size: 22px;
+  z-index: 10;
 }
 
 .card:hover {
@@ -78,6 +80,7 @@ body {
 .controls .arrow-row {
   display: flex;
   gap: 12px;
+
 }
 
 .count-cards {
@@ -94,6 +97,7 @@ body {
   cursor: pointer;
   opacity: 0.75;
   transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
 }
 
 .arrow:hover {
@@ -103,10 +107,11 @@ body {
 
 .hamburger-container {
   position: relative;
+  margin-left: 20px;
 }
 
 .hamburger {
-  font-size: 24px;
+  font-size: 34px;
   background: none;
   border: none;
   cursor: pointer;
@@ -221,23 +226,17 @@ h2 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* .card-front {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  color: white;
 
-} */
 
 .card-back {
-  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  /* background: linear-gradient(135deg, #43e97b, #38f9d7); */
   transform: rotateY(180deg);
   padding: 20px;
-  text-align: center;
-  background-image:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/paper4.avif');
+  text-align: left;
+  background-color: #e1e0d9;
   background-size: cover;
   background-blend-mode: overlay;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
   font-family: 'Playfair Display', serif;
   font-size: 22px
 }
@@ -279,17 +278,24 @@ h2 {
 }
 
 .card-front.deck-1 {
-  background-image: url('./img/firstDate1.avif');
+  background-image: url('./img/firstdate3.jpg');
   background-size: cover;
-  color: #cec9b3;
+  color: #faf9f6;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+/* .card-front {
+  /* background: linear-gradient(135deg, #4facfe, #00f2fe); */
+/* color: white; */
+/* background-image: url('./img/firstdate3.jpg');
+  background-size: cover;
+} */
+
 .deck-cover.deck-1::after {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/firstDate1.avif');
+    url('./img/firstdate3.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -297,15 +303,63 @@ h2 {
 .deck-cover.deck-1::before {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/firstDate1.avif');
+    url('./img/firstdate3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-front.deck-2 {
+  background-image: url('./img/fam.jpg');
+  background-size: cover;
+  color: #fffffd;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.deck-cover.deck-2::after {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/fam.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.deck-cover.deck-2::before {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/fam.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-front.deck-3 {
+  background-image: url('./img/youtube1.jpg');
+  background-size: cover;
+  color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.deck-cover.deck-3::after {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/youtube1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.deck-cover.deck-3::before {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/youtube1.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .card-front.deck-4 {
-  background-image: url('./img/pregnancy2.avif');
+  background-image: url('./img/pregnancy.jpg');
   background-size: cover;
-  color: #cec9b3;
+  color: #ffffff;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -313,7 +367,7 @@ h2 {
 .deck-cover.deck-4::after {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/pregnancy2.avif');
+    url('./img/pregnancy.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -321,15 +375,31 @@ h2 {
 .deck-cover.deck-4::before {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/pregnancy2.avif');
+    url('./img/pregnancy.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.card-front.deck-5 {
-  background-image: url('./img/mom.jpeg');
+.page-container.id-4 {
+  position: fixed;
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  background-image: url('./img/pregnancy.jpg');
   background-size: cover;
-  color: #cec9b3;
+  background-position: center;
+  background-attachment: fixed;
+  /* filter: blur(8px); */
+  z-index: -10;
+}
+
+.card-front.deck-5 {
+  background-image: url('./img/mom1.jpg');
+  background-size: cover;
+  color: #fefdf8;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -337,7 +407,7 @@ h2 {
 .deck-cover.deck-5::after {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/mom.jpeg');
+    url('./img/mom1.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -345,15 +415,15 @@ h2 {
 .deck-cover.deck-5::before {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/mom.jpeg');
+    url('./img/mom1.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .card-front.deck-6 {
-  background-image: url('./img/marriage.avif');
+  background-image: url('./img/wedding.jpg');
   background-size: cover;
-  color: #cec9b3;
+  color: #fbfbfb;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -361,7 +431,7 @@ h2 {
 .deck-cover.deck-6::after {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/marriage.avif');
+    url('./img/wedding.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -369,7 +439,145 @@ h2 {
 .deck-cover.deck-6::before {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
-    url('./img/marriage.avif');
+    url('./img/wedding.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.card-front.deck-7 {
+  background-image: url('./img/fun.jpg');
+  background-size: cover;
+  color: #fbfaf6;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.deck-cover.deck-7::after {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/fun.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.deck-cover.deck-7::before {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/fun.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.card-front.deck-8 {
+  background-image: url('./img/kids.jpg');
+  background-size: cover;
+  color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.deck-cover.deck-8::after {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/kids.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.deck-cover.deck-8::before {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/kids.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-front.deck-9 {
+  background-image: url('./img/journaling.jpg');
+  background-size: cover;
+  color: #fbfbfb;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.deck-cover.deck-9::after {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/journaling.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.deck-cover.deck-9::before {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    url('./img/journaling.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.filter-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.filter-button {
+  padding: 20px;
+
+
+}
+
+.ffilter-header button:hover {
+  background-color: #00f2fe;
+}
+
+.filter-header {
+  text-align: center;
+  /* margin: 30px 0; */
+}
+
+/* .filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+} */
+
+.filter-menu {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-button {
+  padding: 8px 16px;
+  background: var(--main-background-color, white);
+  color: var(--main-text-color, black);
+  border: 1px solid var(--main-outline-color, rgba(0, 0, 0, 0.15));
+  border-radius: 50px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  /* soft transparent background */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filter-button.active {
+  background: var(--main-text-color, black);
+  color: var(--main-background-color, white);
+  border-color: var(--dense-outline-color, rgba(0, 0, 0, 0.5));
 }

@@ -7,8 +7,13 @@ import HamburgerMenu from './HamburgerMenu'
 
 const MainMenu = () => {
     const [decks, setDecks] = useState<any[]>([])
+    const [filter, setFilter] = useState('all')
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const filteredDecks = filter === 'all'
+        ? decks
+        : decks.filter(deck => deck.topic === filter)
 
 
     useEffect(() => {
@@ -42,15 +47,26 @@ const MainMenu = () => {
                 <nav>
                     <HamburgerMenu />
                 </nav>
-                <h1>What’s Your Deck Today?</h1>
             </header>
+            <div className='filter-header'>
+                <h1>What’s Your Deck Today?</h1>
+                <div className="filter-container">
+                    <div className="filter-menu">
+                        {['all', 'Family & Home', 'Marriage & Partnership', 'Love & Relationships', 'Friends and Fun', 'Self Reflection'].map(category => (
+                            <button className="filter-button" key={category} onClick={() => setFilter(category)}>
+                                {category.charAt(0).toUpperCase() + category.slice(1)}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
             <div className="deck-container">
-                {decks.map(deck => (
+                {filteredDecks.map(deck => (
                     <div className={`deck-cover deck-${deck.id}`}
                         key={deck.id}
                         onClick={() => handleSelect(deck)}>
                         <div className="card-inner">
-                            <div className="card-front">
+                            <div className={`card-front deck-${deck.id}`}>
                                 {deck.name}
                             </div>
                             <div className="card-back">

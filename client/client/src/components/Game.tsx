@@ -39,7 +39,7 @@ const Game = () => {
     return (
         <div>
             <HamburgerMenu />
-            <div className='page-container'>
+            <div className={`page-container id-${categoryId}`}>
                 <div className="card-container">
                     {questions.length > 0 && (
                         <div className="card">
