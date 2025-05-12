@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/carousel.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,7 +6,13 @@ import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const decks = [
+
+interface Deck {
+    id: number;
+    name: string;
+    description: string;
+}
+const decks: Deck[] = [
     { id: 1, name: 'Love & Relationships', description: 'Fun, flirty, and thoughtful questions to spark connection.' },
     { id: 2, name: 'Family Time', description: 'Heartwarming questions to connect across generations.' },
     { id: 3, name: 'Unhinged Friends', description: 'Chaotic and hilarious questions for unforgettable nights.' },
@@ -16,25 +22,43 @@ const decks = [
 
 
 const Carousel = () => {
+
     return (
         <div className="carousel-wrapper">
             <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={20}
-                slidesPerView={3}
+                centeredSlides={true}
+                modules={[Navigation, Autoplay]}
+                // spaceBetween={30}
+                // slidesPerView={3}
                 navigation
-                pagination={{ clickable: true }}
                 loop={true}
-                autoplay={{ delay: 3000 }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                speed={1000}
+                style={{ height: '100%' }}
                 breakpoints={{
-                    640: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                    1280: {
+                        slidesPerView: 3,
+                    }
                 }}
             >
                 {decks.map((deck) => (
                     <SwiperSlide key={deck.id}>
-                        <div className="carousel-item">
+                        <div className={`carousel-item id-${deck.id}`}>
                             <h3>{deck.name}</h3>
                             <p>{deck.description}</p>
                         </div>

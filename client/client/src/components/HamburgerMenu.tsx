@@ -15,8 +15,8 @@ const HamburgerMenu = () => {
                 <div className='hamburger-container'>
                     <button className="hamburger" id="hamburger" onClick={handleToggle}>&#9776;</button>
                     <ul className={`nav-links ${isOpen ? 'show' : ''}`} id="nav-links">
-                        <li><Link to="/categories" className="linkButton">Menu</Link></li>
-                        <li><Link to="/" className="linkButton">Home</Link></li>
+                        <li><Link to="/" className="linkButton-hamburger">Home</Link></li>
+                        <li><Link to="/categories" className="linkButton-hamburger">Decks</Link></li>
                     </ul >
                 </div>
             </nav>

@@ -3,36 +3,35 @@ body {
   background: linear-gradient(160deg, #a2cbee, #d4e6f8);
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  z-index: 1;
+  z-index: 0;
 }
 
 .linkButton {
   padding: 5px;
-  /* border: 1px solid black; */
-  /* border-radius: 4px; */
-  /* margin-right: 8px; */
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 8px;
   text-decoration: none;
 }
 
 
 /* .page-container {
-  display: flex;i want 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  background-image: url('./img/pregnancy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
 } */
 
-.card-container {
-  width: 90%;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
+/* .card {
   width: 100%;
   aspect-ratio: 2 / 3;
   background: #cec9b3;
@@ -56,14 +55,26 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Playfair Display', serif;
   font-size: 22px;
-  z-index: 10;
-}
+  z-index: 2;
+  margin: 0;
+} */
 
-.card:hover {
+/* .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07),
     0 12px 30px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+} */
+
+.controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
 }
 
 .card .controls {
@@ -80,13 +91,14 @@ body {
 .controls .arrow-row {
   display: flex;
   gap: 12px;
-
+  z-index: 3;
 }
 
 .count-cards {
   font-size: 0.9rem;
   margin-top: 6px;
   color: #555;
+  z-index: 3;
 }
 
 .arrow {
@@ -97,7 +109,7 @@ body {
   cursor: pointer;
   opacity: 0.75;
   transition: opacity 0.2s, transform 0.2s;
-  z-index: 10;
+  z-index: 3;
 }
 
 .arrow:hover {
@@ -107,7 +119,7 @@ body {
 
 .hamburger-container {
   position: relative;
-  margin-left: 20px;
+  margin: 10px;
 }
 
 .hamburger {
@@ -123,10 +135,10 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 70px;
+  width: 50px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   top: 40px;
   right: 0;
   background: white;
@@ -136,6 +148,8 @@ body {
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 
@@ -146,27 +160,25 @@ body {
 
 }
 
-.nav-links {
-  padding: 5px 5px;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.linkButton {
+.linkButton-hamburger {
   text-decoration: none;
   color: #333;
-  display: block;
+  margin-bottom: 10px;
+  /* display: block; */
   /* width: 100%; */
 }
 
-.linkButton:hover {
+.linkButton-hamburger:hover {
   background-color: #f0f0f0;
 }
 
 
 .deck-container {
+  max-width: 1800px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  gap: 40px;
   align-items: center;
   justify-content: center;
   text-align: center
@@ -182,7 +194,10 @@ h2 {
   font-family: 'Playfair Display', serif;
 }
 
-
+#root {
+  position: relative;
+  z-index: 1;
+}
 
 .deck-cover {
   width: 250px;
@@ -285,13 +300,6 @@ h2 {
   background-repeat: no-repeat;
 }
 
-/* .card-front {
-  /* background: linear-gradient(135deg, #4facfe, #00f2fe); */
-/* color: white; */
-/* background-image: url('./img/firstdate3.jpg');
-  background-size: cover;
-} */
-
 .deck-cover.deck-1::after {
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
@@ -380,21 +388,7 @@ h2 {
   background-position: center;
 }
 
-.page-container.id-4 {
-  position: fixed;
-  /* top: 0;
-  left: 0; */
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  display: flex;
-  background-image: url('./img/pregnancy.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* filter: blur(8px); */
-  z-index: -10;
-}
+
 
 .card-front.deck-5 {
   background-image: url('./img/mom1.jpg');
@@ -580,4 +574,125 @@ h2 {
   background: var(--main-text-color, black);
   color: var(--main-background-color, white);
   border-color: var(--dense-outline-color, rgba(0, 0, 0, 0.5));
+}
+
+
+.instruction-container {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  padding: 100px 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+  /* margin-bottom: 20px; */
+}
+
+.info-box {
+  width: 250px;
+  /* border: 1px solid black; */
+  padding: 20px;
+}
+
+.info-box h2 {
+  font-size: 1.7rem;
+}
+
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.auth-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background: #333;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-text {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 1rem;
+  }
+
+  .auth-buttons {
+    gap: 0.5rem;
+  }
+
+  .auth-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .welcome-text {
+    display: none;
+  }
+}
+
+
+.game-container {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
