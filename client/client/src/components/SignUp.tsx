@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
 import '../css/signup.css'
+import React from 'react'
 
 const SignUp = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated: boolean, onLogout: () => void }) => {
     const [username, setUsername] = useState('')

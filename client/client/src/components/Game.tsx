@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import React from 'react'
 import HamburgerMenu from './HamburgerMenu'
 import { RootState } from '../store/store'
 import { useSelector } from 'react-redux'
@@ -49,10 +50,6 @@ const Game = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated:
         fetchQuestions()
     }, [categoryId, isAuthenticated, navigate])
 
-    // const handleNext = () => {
-    //     const randomIndex = Math.floor(Math.random() * questions.length)
-    //     setCurrentIndex(randomIndex)
-    // }
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % questions.length)
     }

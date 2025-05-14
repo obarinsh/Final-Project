@@ -1,6 +1,7 @@
 import '../css/navbar.css';
 import HamburgerMenu from './HamburgerMenu';
 import { Link } from 'react-router-dom';
+import React from 'react'
 
 const NavBar = ({ user, isAuthenticated, onLogout }:
     {

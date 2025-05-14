@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react'
 import '../css/carousel.css'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -28,8 +29,6 @@ const Carousel = () => {
             <Swiper
                 centeredSlides={true}
                 modules={[Navigation, Autoplay]}
-                // spaceBetween={30}
-                // slidesPerView={3}
                 navigation
                 loop={true}
                 autoplay={{
