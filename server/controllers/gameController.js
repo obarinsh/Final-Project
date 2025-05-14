@@ -3,6 +3,12 @@ import pool from '../db/db.js'
 
 export const getQuestionsByCategory = async (req, res) => {
     const { categoryId } = req.params
+
+    // Validate that categoryId is a number
+    if (!/^\d+$/.test(categoryId)) {
+        return res.status(400).json({ message: 'Invalid category ID format' })
+    }
+
     try {
         const results = await pool.query('SELECT * FROM questions WHERE category_id=$1', [categoryId])
         if (results.rows.length === 0) {

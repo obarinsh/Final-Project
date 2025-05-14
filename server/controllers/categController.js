@@ -15,6 +15,12 @@ export const getAllCateg = async (req, res) => {
 
 export const getCategById = async (req, res) => {
     const { id } = req.params
+
+    // Validate that id is a number
+    if (!/^\d+$/.test(id)) {
+        return res.status(400).json({ message: 'Invalid category ID format' })
+    }
+
     try {
         const results = await pool.query('SELECT * FROM categories WHERE id=$1', [id])
         if (results.rows.length === 0) {
