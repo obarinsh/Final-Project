@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node server.js"
+  },
   "devDependencies": {
     "eslint": "^9.26.0"
   }
