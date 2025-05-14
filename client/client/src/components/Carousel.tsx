@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
-import React from 'react'
+// import React from 'react'
 import '../css/carousel.css'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import 'swiper/css/navigation';

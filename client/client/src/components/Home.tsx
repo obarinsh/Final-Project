@@ -1,33 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from '../store/store'
-import { logout } from '../features/authSlice'
+// import React from 'react'
+// import { useDispatch } from 'react-redux'
+// import { AppDispatch } from '../store/store'
+// import { logout } from '../features/authSlice'
 import Carousel from './Carousel.tsx'
-import HamburgerMenu from './HamburgerMenu.tsx'
 import NavBar from './NavBar.tsx'
-import Footer from './Footer.tsx'
+
+
+// import { Link } from 'react-router-dom'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { RootState, AppDispatch } from '../store/store'
+// import { logout } from '../features/authSlice'
+// import Carousel from './Carousel.tsx'
+// import HamburgerMenu from './HamburgerMenu.tsx'
+// import NavBar from './NavBar.tsx'
+// import Footer from './Footer.tsx'
+
+
+
+
+
+
 
 const Home = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated: boolean, onLogout: () => void }) => {
     // const user = useSelector((state: RootState) => state.auth.user)
     // const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated)
     // const onLogout = useSelector((state: RootState) => state.auth.onLogout)
-    const dispatch = useDispatch<AppDispatch>()
+    // const dispatch = useDispatch<AppDispatch>()
 
-    const handleLogout = async () => {
-        try {
-            const response = await fetch('http://localhost:3001/api/auth/logout', { method: 'POST', credentials: 'include' })
-            if (!response.ok) {
-                console.error('Logout failed on server side')
-            }
-        } catch (error) {
-            console.log('Logout failed:', error)
-        } finally {
-            dispatch(logout())
-        }
+    // const handleLogout = async () => {
+    //     try {
+    //         const response = await fetch('http://localhost:3001/api/auth/logout', { method: 'POST', credentials: 'include' })
+    //         if (!response.ok) {
+    //             console.error('Logout failed on server side')
+    //         }
+    //     } catch (error) {
+    //         console.log('Logout failed:', error)
+    //     } finally {
+    //         dispatch(logout())
+    //     }
 
-    }
-    console.log(isAuthenticated)
+    // }
+    // console.log(isAuthenticated)
     return (
         <div>
             <NavBar user={user} isAuthenticated={isAuthenticated} onLogout={onLogout} />

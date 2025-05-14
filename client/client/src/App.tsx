@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import React from 'react'
+// import React from 'react'
 import Home from './components/Home'
 import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
@@ -17,8 +17,20 @@ function App() {
   const user = useSelector((state: RootState) => state.auth.user)
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated)
 
-  const handleLogout = () => {
-    dispatch(logout())
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      })
+      if (!response.ok) {
+        console.error('Logout failed on server side')
+      }
+    } catch (error) {
+      console.log('Logout failed:', error)
+    } finally {
+      dispatch(logout())
+    }
   }
 
   return (

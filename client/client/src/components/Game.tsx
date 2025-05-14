@@ -1,15 +1,15 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import React from 'react'
-import HamburgerMenu from './HamburgerMenu'
-import { RootState } from '../store/store'
-import { useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
+// import React from 'react'
+// import HamburgerMenu from './HamburgerMenu'
+// import { RootState } from '../store/store'
+// import { useSelector } from 'react-redux'
 import NavBar from './NavBar'
 import '../css/gamemenu.css'
 
 const Game = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated: boolean, onLogout: () => void }) => {
-    const { categoryId, name } = useParams<{ categoryId: string, name: string }>()
+    const { categoryId } = useParams<{ categoryId: string, name: string }>()
     const [questions, setQuestions] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [currentIndex, setCurrentIndex] = useState(0)

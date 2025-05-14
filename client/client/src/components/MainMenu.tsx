@@ -1,12 +1,14 @@
-import React from 'react'
+// import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { selectedCategory } from '../features/categSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import HamburgerMenu from './HamburgerMenu'
-import { Link } from 'react-router-dom'
-import { RootState } from '../store/store'
+import { useDispatch } from 'react-redux'
 import NavBar from './NavBar'
+
+// import { useDispatch, useSelector } from 'react-redux'
+// import HamburgerMenu from './HamburgerMenu'
+// import { Link } from 'react-router-dom'
+// import { RootState } from '../store/store'
 
 const MainMenu = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated: boolean, onLogout: () => void }) => {
     const [decks, setDecks] = useState<any[]>([])
