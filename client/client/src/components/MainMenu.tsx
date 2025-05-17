@@ -27,7 +27,7 @@ const MainMenu = ({ user, isAuthenticated, onLogout }: { user: any, isAuthentica
         const fetchCategories = async () => {
             try {
                 // const response = await fetch('http://localhost:3001/api/categories')
-                const response = await fetch('http://localhost:3001/api/categories', {
+                const response = await fetch('/api/categories', {
                     credentials: 'include'
                 })
                 const data = await response.json()
