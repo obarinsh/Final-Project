@@ -1,14 +1,35 @@
 import pool from '../db/db.js'
 
 export const getAllCateg = async (req, res) => {
-    console.log('Fetching all categories')
+    console.log('Starting getAllCateg function')
+    let client;
     try {
-        const results = await pool.query('SELECT * FROM categories')
+        console.log('Attempting to get client from pool')
+        client = await pool.connect()
+        console.log('Successfully got client from pool')
+
+        console.log('Executing SELECT query for categories')
+        const results = await client.query('SELECT * FROM categories')
+        console.log(`Successfully retrieved ${results.rows.length} categories`)
+
         res.json(results.rows)
     }
     catch (error) {
-        console.error('Problem to fetch categories:', error)
-        res.status(500).json({ message: 'Categories are not available' })
+        console.error('Error in getAllCateg:', {
+            message: error.message,
+            code: error.code,
+            detail: error.detail,
+            stack: error.stack
+        })
+        res.status(500).json({
+            message: 'Categories are not available',
+            error: process.env.NODE_ENV === 'development' ? error.message : undefined
+        })
+    } finally {
+        if (client) {
+            console.log('Releasing client back to pool')
+            client.release()
+        }
     }
 }
 
