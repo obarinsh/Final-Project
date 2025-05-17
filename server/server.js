@@ -26,14 +26,21 @@ if (process.env.NODE_ENV !== 'production') {
     }))
 }
 
-// Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, '../client/client/dist')))
+// Optional: Add request logging for easier debugging
+app.use((req, res, next) => {
+    console.log(`[${req.method}] ${req.path}`)
+    next()
+})
 
+// ✅ API routes must come BEFORE static and wildcard
 app.use('/api/auth', user_routes)
 app.use('/api/categories', categ_routes)
 app.use('/api/game', game_routes)
 
-// Serve React app for any other routes
+// ✅ Serve static files from the React build directory
+app.use(express.static(path.join(__dirname, '../client/client/dist')))
+
+// ✅ Catch-all for React client routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/client/dist', 'index.html'))
 })
