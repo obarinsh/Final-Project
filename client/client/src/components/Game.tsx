@@ -26,7 +26,7 @@ const Game = ({ user, isAuthenticated, onLogout }: { user: any, isAuthenticated:
             setIsLoading(true)
             setError(null)
             try {
-                const response = await fetch(`http://localhost:3001/api/game/${categoryId}`, {
+                const response = await fetch(`/api/game/${categoryId}`, {
                     credentials: 'include',
                     headers: {
                         'Accept': 'application/json',
