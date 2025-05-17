@@ -62,7 +62,6 @@ const testConnection = async () => {
         const result = await client.query('SELECT NOW()')
         console.log('Test query successful:', result.rows[0])
 
-        client.release()
     } catch (err) {
         console.error('Database connection test failed:', err.message)
         console.error('Error details:', {
