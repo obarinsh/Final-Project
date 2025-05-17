@@ -1,7 +1,7 @@
 import pool from '../db/db.js'
 
 export const getAllCateg = async (req, res) => {
-
+    console.log('Fetching all categories')
     try {
         const results = await pool.query('SELECT * FROM categories')
         res.json(results.rows)
